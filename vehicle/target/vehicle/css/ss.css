@@ -1,0 +1,65 @@
+#shortcutBar {
+	height: 30px;
+}
+
+#shortcutBar ul {
+	position: relative;
+	/* left: 50%; */
+	float: left;
+}
+
+#shortcutBar li {
+	position: relative;
+	/* right: 50%; */
+	display: inline;
+	float: left;
+	margin-left: 10px;
+	line-height: 30px;
+}
+
+.barbutton {
+	line-height: 25px;
+	text-align: center;
+	background: #00ff00;
+	cursor: pointer;
+	border-radius: 3px;
+	height: 25px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+	-khtml-user-select: none;
+}
+ .barbutton:hover {
+	background: #35b033;
+	color:white;
+} 
+.currButton{
+	background: #35b033;
+	color:white;
+}
+#allmap {
+    height: 500px;
+    width: 100%;
+}
+/*html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}*/
+#map {
+	height: 630px;
+	width: auto;
+}
+#picture{
+	height:464px;
+	width:1080px;
+	position: relative;
+	background: url("../images/bus/background.bmp") 0 0 repeat;
+}
+#right-panel{
+	position: absolute;
+	top: 140px;
+	right: 80px;
+	z-index: 99;
+	background-color:#FFFFFF;
+}

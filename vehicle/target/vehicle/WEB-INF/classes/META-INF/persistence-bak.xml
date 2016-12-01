@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="vehicle" transaction-type="RESOURCE_LOCAL">
+        <!--hibernate默认是在hibernate-core-5.2.jar/meta-inf/service/provide文件中写好，各版本路径不一样，入中类也不一样
+        下面配置的就是默认的hibernate入口类-->
+        <!--<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>-->
+        <properties>
+            <property name="hibernate.connection.driver_class" value="org.gjt.mm.mysql.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/vehicle"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="mysql"/>
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+
+            <!--<property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>-->
+
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
+
+            <property name="hibernate.archive.autodetection" value="class"/>
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.c3p0.internal.C3P0ConnectionProvider"/>
+            <!--连接池中保留的最大连接数。Default: 15 -->
+            <property name="maxPoolSize" value="100" />
+            <!--连接池中保留的最小连接数。-->
+            <property name="minPoolSize" value="1" />
+            <!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+            <property name="initialPoolSize" value="10" />
+        </properties>
+    </persistence-unit>
+</persistence>

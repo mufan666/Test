@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <persistence-unit name="vehicle" transaction-type="RESOURCE_LOCAL">
+        <properties>
+            <!--<property name="persistenceXmlLocation" value="classpath:META-INF/persistence.xml"/>-->
+            <property name="hibernate.connection.driver_class" value="org.gjt.mm.mysql.Driver"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost/vehicle?characterEncoding=utf8&amp;useSSL=true"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="aini678"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <!--<property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>-->
+
+            <property name="hibernate.cache.use_second_level_cache" value="false"/>
+
+            <property name="hibernate.archive.autodetection" value="class"/>
+
+            <property name="hibernate.connection.provider_class" value="org.hibernate.c3p0.internal.C3P0ConnectionProvider"/>
+            <!--连接池中保留的最大连接数。Default: 15 -->
+            <property name="maxPoolSize" value="20" />
+            <!--连接池中保留的最小连接数。-->
+            <property name="minPoolSize" value="1" />
+            <!--初始化时获取的连接数，取值应在minPoolSize与maxPoolSize之间。Default: 3 -->
+            <property name="initialPoolSize" value="10" />
+
+            <property name="preferredTestQuery" value="SELECT 1"/>
+            <property name="idleConnectionTestPeriod" value="18000"/>
+            <property name="testConnectionOnCheckout" value="true"/>
+
+        </properties>
+    </persistence-unit>
+</persistence>

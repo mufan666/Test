@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd
+        http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <!--<context:component-scan base-package="com.mufan"/>
+    <aop:aspectj-autoproxy/>
+    <context:property-placeholder location="classpath:filmconfig.properties"/>
+    <jpa:repositories base-package="com.mufan.*.dao" repository-impl-postfix="Impl"
+                      entity-manager-factory-ref="entityFactory" transaction-manager-ref="txManager"/>
+    <bean id="entityFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="vehicle"/>
+
+    </bean>
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager"/>-->
+
+    <context:component-scan base-package="com.mufan"/>
+    <aop:aspectj-autoproxy/>
+    <!--<context:property-placeholder location="classpath:filmconfig.properties"/>-->
+    <bean id="propertyConfigurer"
+          class="com.mufan.utils.CustomizedProperty">
+        <property name="locations">
+            <list>
+                <value>classpath:jdbc1.properties</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basenames">
+            <list>
+                <value>/WEB-INF/filmconfig</value>
+            </list>
+        </property>
+    </bean>
+    <jpa:repositories base-package="com.mufan.*.dao" repository-impl-postfix="Impl"
+                      entity-manager-factory-ref="entityFactory" transaction-manager-ref="txManager"/>
+    <!--<jpa:repositories base-package="com.mufan.ap.dao" repository-impl-postfix="Impl"
+                      entity-manager-factory-ref="entityFactory" transaction-manager-ref="txManager"/>-->
+    <bean id="entityFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+        <property name="persistenceUnitName" value="vehicle"/>
+
+    </bean>
+    <bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityFactory"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="txManager"/>
+</beans>
